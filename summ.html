@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <p>hello</p>
+    <script>
+        var obj = (function(){
+            var summ = 0;
+                return {
+                    add: function(){
+                        summ += getSumms(arguments);
+                        return this;
+                    },
+                    sub: function(){
+                        summ = summ - getSumms(arguments);
+                        return this;
+                    },
+                    result: function (){
+                    return summ;
+                    }
+                    };
+                })();
+        
+        var getSumms = function (arguments){
+            var temp = 0;
+            var slice = [].slice;
+            var arr = slice.call(arguments);
+    
+        for (var i=0; i<arr.length; i++){
+            temp += arr[i];
+        }
+        return temp;
+        }
+        
+        alert(obj.add(1,2,3).add(4).sub(5,6).add(7).add(8).result());
+    </script>
+</body>
+</html>
